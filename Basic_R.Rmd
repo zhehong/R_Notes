@@ -103,8 +103,11 @@ the redundant part if replicated number exceeds the original size
 ## Detailed Commands
 
 
-## Useful shortcuts 
-- **"option/alt" + "-"** : <- 
+## Rstudio Useful shortcuts 
+- `option/alt + "-"` : <- 
+- `ctr+1/2/3` switch to editor/console/help window
+- `cmd + backspace` delete entire line before the cursor
+
 
 
 
