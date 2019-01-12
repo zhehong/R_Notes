@@ -1,0 +1,125 @@
+---
+title: "Bais R"
+output: html_notebook 
+---
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Cmd+Shift+Enter*. 
+
+## Data Types
+- **numeric**(most common), **integer**, **character**, **double**(higher precision), **complex**, **raw**(store raw bytes)
+- Coercion: `as.numeric(), as.character(), as.integer()`.
+- If coercion fails, it generates NA
+
+## Vectors
+- R has automatic coercion for vectors
+- `length()`
+- `names(vector) <-` vector of strings
+- subset all but 1: `v[-1], v[-c(1,2)]`
+- subset using logical vector: `v[c(T,f)]` $\Leftrightarrow$ `v[rep(c(T,F),length(v)/2)]`
+
+## Matrices
+- `matrix(c(),nrow = or ncol = , byrow = )`
+- `matrix(1:3, nrow = 2, ncol = 3)`, it will automatic replicate if the number divides
+- `cbind() rbind()`
+- `rownames(), colnames()`
+- coercion still exists
+- subset `m[,col] m[row,]`
+- submatrix `m[c(),c()]`
+- can subset by name or names and index combined `m['name', index]`
+- `m[c(T,f),c(T,f)]` $\Leftrightarrow$ `m[rep(c(T,F),length(v)/2), rep(c(T,F),length(v)/2)]` it will automatically negelects 
+the redundant part if replicated number exceeds the original size
+- `colSums(), rowSums()`
+- elementwise operation +,-,*,/ with scalars, vectors and matrices
+
+## Factors
+- categorical variables
+-`factor(vector)`
+- if want different order levels, default is alphabetically, `factor(v,levels = c())`
+- rename each element according to level, `levels(factor) <- c()`
+- `factor(v, levels = c(), labels = c())`
+- Nominal versus Ordinal
+- `tshirt_factor <- factor(tshirt, ordered = T, levels = c("S", "M", "L"))`
+
+## List
+- Can store different R objects
+- `list()`, `list$name`, `list[index]`
+- List in list
+- subset by [] will return a list, `l[[ ]]` will return element, like `l$name`
+- `l[[c(1,3)]]` $\Leftrightarrow$ `l[[1]][[3]]`
+- [[ ]] is only for selecting a single element from a list
+- subset by logicals only use single bracket
+- add element ot list: `l$newone ` or `l[[newone]] `
+
+## Dataframe
+- specifically for datasets
+- contain elements of different types, elements in same column should have the same type
+- `data.frame(name,age,child)`, name is inferred from vector names
+- `names(df) = `
+- Subset: `people[,'age']`
+- Dataframe is actually a list, `people$age, people[['age']], peole[[2]]`, `people[2]` will return a column which is a df/list
+- add column: `df$newone = `, `df[['newone']]`, `cbind(df,vector)`
+- add row: `rbind()`, must make sure names match
+- sorting dataframe: df[order(df$name, decreasing = ),]
+
+## Graphcis
+### basic plot function
+- `plot(categorical vector)`
+- `plot(df$v1, df$v2)` scatter plot
+- `plot(df$categorical1, df$cat2)` 
+- `hist(v, breaks = , freq = , )`
+- `barplot()`
+- `boxplot()`
+- `pairs()`
+
+### Customizing plots
+- `plot(xlab = , ylab = , main = "Plot title", type = 'p/l/b/s',  col = "plot color", col.main = "title color", cex.axis = number for axis label size, lty = number for line type, pch = number for point type, lwd = line width)`
+- `par()` check current graphics parameter
+- `par(col = "new color")`
+- `par()$cex.axis`
+
+### Multiple Plots
+- `par(mfrow = c(2,2))` added in row wise fashion, similarly there is `mfcol = c()`
+- `layout()` example: `grid = matrix(c(1,1,2,3), nrow = 2, byrow = T), layout(grid)`, `layout(1)`
+- `old_par = par(), par(old_par())`
+- stack graphical elements `lm_sales = lm(d$sales~ d$ads) abline(coef(lm_sales))` `points(), segements(), lines(), text()`
+- `ranks = order(d$ads); plot(d$ads[ranks], d$sales[ranks])`
+- The graphical elements, once added, cannot be removed
+
+
+
+
+
+## Recommended Packages
+- data.table, dpylr
+- ggplot2, ggvice, lattice
+
+## Common Commands
+- `ls()`
+- `clsss()`
+- `is.numeric(), is.integer(), is.vector()`
+- `str()` displays the structure of R objects
+
+## Detailed Commands
+
+
+## Useful shortcuts 
+- **"option/alt" + "-"** : <- 
+
+
+```{r}
+as.numeric("e") 
+```
+
+
+Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing **Cmd+Option+I**.
+
+When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Cmd+Shift+K* to preview the HTML file). 
+
+The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
+
+---
+title: "Bais R"
+output: html_notebook 
+---
