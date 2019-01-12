@@ -1,6 +1,8 @@
 ---
-title: "Bais R"
-output: html_notebook 
+title: "Basic R"
+output:
+  html_document:
+    df_print: paged
 ---
 
 This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
@@ -88,9 +90,6 @@ the redundant part if replicated number exceeds the original size
 - The graphical elements, once added, cannot be removed
 
 
-
-
-
 ## Recommended Packages
 - data.table, dpylr
 - ggplot2, ggvice, lattice
@@ -107,10 +106,6 @@ the redundant part if replicated number exceeds the original size
 ## Useful shortcuts 
 - **"option/alt" + "-"** : <- 
 
-
-```{r}
-as.numeric("e") 
-```
 
 
 Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing **Cmd+Option+I**.
